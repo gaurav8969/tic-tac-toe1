@@ -1,8 +1,56 @@
-template<class T> class Refhandle
-{
-private:
+/*This general handle class has no makeunique function but if we add one then 
+it acts almost like an automatic pointer, a static one, it is of great advantage
+to take to such a facility since it overcomes the pitfalls of memory management*/
+template<class T> class ptr
+{   public:
+	
+	ptr(): refptr(new size_t(1)),p(0){}
+	ptr(T* t): refptr(new size_t(1)),p(t){}
+	ptr(const ptr& h): refptr(h.refptr),p(h.p)
+	{
+		++*refptr;
+	}
+	void make_unique() //implicit argument, makes the class instance it acts on unique
+	{
+		p = p ? p->clone() : 0; //p must have a clone constructor takes allocates a new space that 
+//is initialized with values of old p, but has a new address, it returns the address.
+		--*refptr;
+		refptr = new size_t(1);
+	}
+	ptr& operator=(const ptr&);
+	~ptr();
+	operator bool() const { return p; }
+	T* operator-> () const { 
+		return p; 
+	}
+	T& operator* () const{ 
+		return *p; 
+	}
+
+	private:
+
 	size_t* refptr;
-	T* p; /*necessary to have pointers to T and size_t both because if they are objects
-	then they would be local to the class instance but we need many instances
-	accessing the same object and ref count, and thus they must be pointers*/
+	T* p;
 };
+
+template<class T>
+ptr<T>& ptr<T>::operator=(const ptr& rhs) { //writing further <T> after refhandle<T> is optional
+		++*rhs.refptr;
+		if (--*refptr == 0) { //this.refptr not needed since we are inside "this"
+	//right now, and so we can access its members directly without needing any access operator
+			delete p;
+			delete refptr; //delete both(all) objects occupying memory and free that memory
+		}
+		refptr = rhs.refptr;
+		p = rhs.p;
+}
+template<class T>
+ptr<T>::~ptr() { //class instance as implicit argument
+	if (-- * refptr == 0) /*basically we just need to decrease the reference
+		count by 1 in general, the underlying storage object is only destroyed when all the
+		handles referring to it are gone*/
+	{
+		delete refptr;
+		delete p;
+	}
+}
