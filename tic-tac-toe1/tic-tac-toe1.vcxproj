@@ -129,7 +129,7 @@
   <ItemGroup>
     <ClCompile Include="genrefhandle.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="picheirarchy.cpp" />
+    <ClCompile Include="pichierarchy.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

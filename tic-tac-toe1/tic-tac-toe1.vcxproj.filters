@@ -21,7 +21,7 @@
     <ClCompile Include="genrefhandle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="picheirarchy.cpp">
+    <ClCompile Include="pichierarchy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

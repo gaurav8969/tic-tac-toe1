@@ -1,12 +1,12 @@
 /*This general handle class has no makeunique function but if we add one then 
 it acts almost like an automatic pointer, a static one, it is of great advantage
 to take to such a facility since it overcomes the pitfalls of memory management*/
-template<class T> class ptr
+template<class T> class Ptr
 {   public:
 	
-	ptr(): refptr(new size_t(1)),p(0){}
-	ptr(T* t): refptr(new size_t(1)),p(t){}
-	ptr(const ptr& h): refptr(h.refptr),p(h.p)
+	Ptr(): refptr(new size_t(1)),p(0){}
+	Ptr(T* t): refptr(new size_t(1)),p(t){}
+	Ptr(const Ptr& h): refptr(h.refptr),p(h.p)
 	{
 		++*refptr;
 	}
@@ -17,8 +17,8 @@ template<class T> class ptr
 		--*refptr;
 		refptr = new size_t(1);
 	}
-	ptr& operator=(const ptr&);
-	~ptr();
+	Ptr& operator=(const Ptr&);
+	~Ptr();
 	operator bool() const { return p; }
 	T* operator-> () const { 
 		return p; 
@@ -34,7 +34,7 @@ template<class T> class ptr
 };
 
 template<class T>
-ptr<T>& ptr<T>::operator=(const ptr& rhs) { //writing further <T> after refhandle<T> is optional
+Ptr<T>& Ptr<T>::operator=(const Ptr& rhs) { //writing further <T> after refhandle<T> is optional
 		++*rhs.refptr;
 		if (--*refptr == 0) { //this.refptr not needed since we are inside "this"
 	//right now, and so we can access its members directly without needing any access operator
@@ -45,7 +45,7 @@ ptr<T>& ptr<T>::operator=(const ptr& rhs) { //writing further <T> after refhandl
 		p = rhs.p;
 }
 template<class T>
-ptr<T>::~ptr() { //class instance as implicit argument
+Ptr<T>::~Ptr() { //class instance as implicit argument
 	if (-- * refptr == 0) /*basically we just need to decrease the reference
 		count by 1 in general, the underlying storage object is only destroyed when all the
 		handles referring to it are gone*/
