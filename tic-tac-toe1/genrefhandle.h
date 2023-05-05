@@ -1,7 +1,8 @@
+#pragma once
 /*template classes need to be inline declared in the header in the same fashion
 as the source file of the header, the member functions etc. defined separately
 from the class declaration need(should) not be included(defined) in the header
-file, if there is a complaint about "incomplete type", it probably boils down
+file, if there is a complaint about "incomplete type", it probably boils down 
 to this*/
 template<class T> class Ptr
 {
