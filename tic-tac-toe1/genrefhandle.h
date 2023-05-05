@@ -1,9 +1,9 @@
 #pragma once
-/*template classes need to be inline declared in the header in the same fashion
-as the source file of the header, the member functions etc. defined separately
-from the class declaration need(should) not be included(defined) in the header
-file, if there is a complaint about "incomplete type", it probably boils down 
-to this*/
+/*template classes and functions that we wish to use include in other source
+files need to be defined in the header, if there is a complaint about 
+some "incomplete type" or some mysterious linker related messages, it probably 
+boils down to this, i.e only declaring them in the header but not defining them 
+right there, this is how it is for mscv, gcc/g++ could be different*/
 template<class T> class Ptr
 {
 public:
