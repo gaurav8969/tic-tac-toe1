@@ -160,7 +160,18 @@ Pic_base::wd_sz String_Pic::width() const {
 		n = std::max(n, data[i].size());
 	return n;
 }
-
+void String_Pic::display(std::ostream& os, ht_sz row, bool do_pad) const
+{
+	wd_sz start = 0;
+	// write the row if we're still in range 
+	if (row < height()) {
+		os << data[row];
+		start = data[row].size();
+	}
+	// pad the output if necessary 
+	if (do_pad)
+		pad(os, start, width());
+}
 
 //operations on "pictures"
 Picture frame(const Picture& pic) {

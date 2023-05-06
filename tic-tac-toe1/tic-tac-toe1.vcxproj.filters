@@ -24,6 +24,9 @@
     <ClCompile Include="tictactoegrid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="circlecross.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="genrefhandle.h">
