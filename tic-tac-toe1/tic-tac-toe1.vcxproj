@@ -133,6 +133,7 @@
     <ClCompile Include="tictactoegrid.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="circlecross.h" />
     <ClInclude Include="genrefhandle.h" />
     <ClInclude Include="pichierarchy.h" />
   </ItemGroup>
