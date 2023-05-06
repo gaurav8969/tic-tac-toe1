@@ -12,8 +12,8 @@ using std::vector; //global scope of a source file is simply just that file
 using std::string; /*global scope of a header file is all the files 
 that include the header and the header itself*/
 
-class Picture; /*declaration, must not add braces, failing to do so is an
-insidious source of errors */
+class Picture; /*declaration, forward declaration to be specific,must not add
+braces, failing to do so is an insidious source of errors */
 class Pic_base {
 	/*the derived friend classes, check accelerated c++ sec 15.2.7 for the 
 	explanation to this, i.e so the height function calls using pointers to 
