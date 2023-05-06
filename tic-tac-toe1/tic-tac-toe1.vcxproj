@@ -129,9 +129,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pichierarchy.cpp" />
+    <ClCompile Include="tictactoegrid.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="genrefhandle.h" />
+    <ClInclude Include="pichierarchy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,4 +1,7 @@
 #pragma once
+/*all of this header is in form of templates and thus we could not have given
+it a source file and only declared the functions and classes in this header.*/
+
 /*template classes and functions that we wish to use include in other source
 files need to be defined in the header, if there is a complaint about 
 some "incomplete type" or some mysterious linker related messages, it probably 
