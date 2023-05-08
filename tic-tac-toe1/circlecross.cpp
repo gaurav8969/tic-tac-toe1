@@ -13,6 +13,14 @@ private:
 	vector<string> circle;
 };
 
+class Cross {
+public: 
+	Cross(const int&& = 0);
+	void display();
+private:
+	vector<string> cross;
+};
+
 Circle::Circle(const int&& radius = 0) {
 	if (radius > 0) {
 		for (auto y = -radius; y <= radius; y++) {
@@ -36,9 +44,8 @@ void Circle::display() { //not of use in this program for we are going to displa
 		cout << i<<"\n";
 	}
 }
-void cross(int&&);
 
-void cross(int&& height) { //height = width
+Cross::Cross(const int&& height = 0) {
 	for (auto i = 1; i <= height; i++) {
 		for (auto j = 0; j <= height; j++) {
 			if (i == j || i == height - j + 1)
@@ -47,5 +54,10 @@ void cross(int&& height) { //height = width
 				cout << " ";
 		}
 		cout << "\n";
+	}
+}
+void Cross::display() {
+	for (string i : cross) {
+		cout << i << "\n";
 	}
 }
