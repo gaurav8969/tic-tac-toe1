@@ -1,3 +1,4 @@
+#include "circlecross.h"
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -5,23 +6,8 @@
 using std::cout;
 using std::vector;
 using std::string;
-class Circle {
-public:
-	Circle(const int&& = 0); //vs underlining Circle, fucking loitering lush of a parser
-	void display();
-private:
-	vector<string> circle;
-};
 
-class Cross {
-public: 
-	Cross(const int&& = 0);
-	void display();
-private:
-	vector<string> cross;
-};
-
-Circle::Circle(const int&& radius = 0) {
+Circle::Circle(const int&& radius) {
 	if (radius > 0) {
 		for (auto y = -radius; y <= radius; y++) {
 			string a("");
@@ -40,12 +26,12 @@ Circle::Circle(const int&& radius = 0) {
 }
 void Circle::display() { //not of use in this program for we are going to display
 	//"Pic" objects using display function of the stated class
-	for (string i: circle){
-		cout << i<<"\n";
+	for (string i : circle) {
+		cout << i << "\n";
 	}
 }
 
-Cross::Cross(const int&& height = 0) {
+Cross::Cross(const int&& height) {
 	for (auto i = 1; i <= height; i++) {
 		for (auto j = 0; j <= height; j++) {
 			if (i == j || i == height - j + 1)

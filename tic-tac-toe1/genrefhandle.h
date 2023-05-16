@@ -49,6 +49,7 @@ Ptr<T>& Ptr<T>::operator=(const Ptr& rhs) { //writing further <T> after refhandl
 	}
 	refptr = rhs.refptr;
 	p = rhs.p;
+	return *this;
 }
 template<class T>
 Ptr<T>::~Ptr() { //class instance as implicit argument
