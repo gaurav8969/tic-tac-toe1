@@ -1,5 +1,6 @@
 /*demo comment for github
-demo comment 2 for github*/
+demo comment 2 for github
+demo comment 3 for github*/
 #include "circlecross.h"
 #include <iostream>
 #include <cmath>
