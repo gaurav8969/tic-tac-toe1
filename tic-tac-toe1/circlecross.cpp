@@ -1,3 +1,4 @@
+/*demo comment for github*/
 #include "circlecross.h"
 #include <iostream>
 #include <cmath>
